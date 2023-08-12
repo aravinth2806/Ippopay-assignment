@@ -5,9 +5,11 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [steps, setSteps] = useState(0);
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
+
   function calculateMinSteps(password) {
     const minLength = 6;
-    const maxLength = 20;
 
     const hasLowerCase = /[a-z]/.test(password);
     const hasUpperCase = /[A-Z]/.test(password);
@@ -43,10 +45,8 @@ function App() {
     const newPassword = event.target.value;
     setPassword(newPassword);
     setSteps(calculateMinSteps(newPassword));
-    setPassword(event.target.value);
   };
-  const [showPassword, setShowPassword] = useState(false);
-  const [loginError, setLoginError] = useState("");
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
